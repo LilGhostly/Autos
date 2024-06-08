@@ -193,18 +193,42 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 $(document).ready(function() {
-    // Botón "Compramos tus autos"
+    // Mostrar el formulario de compra cuando se haga clic en "Compramos tus vehículos"
     $('#compramos-autos').click(function(e) {
         e.preventDefault();
         $('#carouselExampleCaptions').hide();
         $('.row.mt-4.p-3').hide();
         $('#formulario-compra').show();
+        $('#texto-compramos-autos').show();
     });
 
-    $('.navbar-brand').click(function(e) {
-        e.preventDefault();
-        $('#carouselExampleCaptions').show();
-        $('.row.mt-4.p-3').show();
+    // Función para mostrar el formulario de detalles del vehículo
+    function mostrarFormularioVehiculo() {
         $('#formulario-compra').hide();
-    });
+        $('#texto-compramos-autos').hide();
+        $('#formulario-vehiculo').show();
+        $('#texto-detalles-autos').show();
+        
+    }
+
+    // Función para volver al formulario de compra inicial
+    function volverAFormularioCompra() {
+        $('#formulario-vehiculo').hide();
+        $('#formulario-compra').show();
+        $('#texto-compramos-autos').show();
+    }
+
+    // Función que se ejecuta al hacer clic en "Continuar" en el formulario inicial
+    window.continuarFormulario = function() {
+        // Aquí podrías validar los datos del formulario inicial si es necesario
+
+        // Mostrar el formulario de detalles del vehículo
+        mostrarFormularioVehiculo();
+    };
+
+    // Función que se ejecuta al hacer clic en "Volver atrás" en el formulario de detalles del vehículo
+    window.volverAtras = function() {
+        // Volver al formulario de compra inicial
+        volverAFormularioCompra();
+    };
 });

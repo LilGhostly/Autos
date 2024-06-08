@@ -73,3 +73,19 @@ select {
 select option {
   color: black; /* Color de texto normal */
 }
+
+#texto-compramos-autos{
+  display: none;
+  padding-left: 25%;
+  padding-top: 20px;
+}
+
+#formulario-compra{
+  display: none;
+}
+#estilos{
+  padding-left: 0;
+}
+#estilos div{
+  margin-bottom: 25px;
+}

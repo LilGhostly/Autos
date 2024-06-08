@@ -48,36 +48,107 @@
     </div>
 
     <div class="container mt-4">
-        <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <!-- Formulario de Compra -->
-                <div id="formulario-compra">
-                    <h2 class="mb-3">Compramos tu vehículo</h2>
-                    <form id="formulario" method="post" action="#">
-                        <div class="mb-3">
-                            <label for="nombre" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" required>
+      <div class="row">
+          <div class="col-md-6">
+              <!-- Texto "Compramos tu vehículo" (inicialmente oculto) -->
+              <div id="texto-compramos-autos" style="display: none;">
+                  <h2 class="mb-3">Compramos tu vehículo</h2>
+                  <p>Obtén una tasación inmediata al mejor precio.<br>
+                  Realiza tu venta de forma segura, rápida y confiable.</p>
+                  <div id="estilos">
+                      <div><i class="fas fa-circle" style="color: #787878;"></i> Ingresa tus datos</div>
+                      <div><i class="fas fa-circle" style="color: #787878;"></i> Recibe una oferta</div>
+                      <div><i class="fas fa-circle" style="color: #787878;"></i> Agenda revisión</div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-6">
+              <!-- Formulario de Compra -->
+              <div id="formulario-compra">
+                  <h2 class="mb-3">Formulario de Compra</h2>
+                  <form id="formulario" method="post" action="#">
+                      <div class="mb-3">
+                          <label for="rut" class="form-label">Rut</label>
+                          <input type="text" class="form-control" id="rut" name="rut" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="nombre" class="form-label">Nombre</label>
+                          <input type="text" class="form-control" id="nombre" name="nombre" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="email" class="form-label">Correo Electrónico</label>
+                          <input type="email" class="form-control" id="email" name="email" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="telefono" class="form-label">Teléfono</label>
+                          <input type="tel" class="form-control" id="telefono" name="telefono" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="mensaje" class="form-label">Mensaje</label>
+                          <textarea class="form-control" id="mensaje" name="mensaje" rows="3"></textarea>
+                      </div>
+                      <div class="mb-3">
+                          <button type="button" class="btn btn-primary" onclick="continuarFormulario();">Continuar</button>
+                          <button type="button" class="btn btn-primary" onclick="window.location.href = 'index.html';">Volver atrás</button>
+                      </div>
+                  </form>
+              </div>
+              <div class="container mt-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- Texto "Compramos tu vehículo" (inicialmente oculto) -->
+                        <div id="texto-detalles-autos" style="display: none;">
+                            <h2 class="mb-3">Compramos tu vehículo</h2>
+                            <p>Obtén una tasación inmediata al mejor precio.<br>
+                            Realiza tu venta de forma segura, rápida y confiable.</p>
+                            <div id="estilos">
+                                <div><i class="fas fa-circle" style="color: #787878;"></i> Ingresa tus datos</div>
+                                <div><i class="fas fa-circle" style="color: #787878;"></i> Recibe una oferta</div>
+                                <div><i class="fas fa-circle" style="color: #787878;"></i> Agenda revisión</div>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Correo Electrónico</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="telefono" class="form-label">Teléfono</label>
-                            <input type="tel" class="form-control" id="telefono" name="telefono" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="mensaje" class="form-label">Mensaje</label>
-                            <textarea class="form-control" id="mensaje" name="mensaje" rows="3"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Enviar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+                    </div>
+                    <div class="col-md-6">
+              <!-- Nuevo formulario de detalles del vehículo (inicialmente oculto) -->
+              <div id="formulario-vehiculo" style="display: none;">
+                  <h2 class="mb-3">Detalles del Vehículo</h2>
+                  <form id="formulario-detalle" method="post" action="#">
+                      <div class="mb-3">
+                          <label for="patente" class="form-label">Patente</label>
+                          <input type="text" class="form-control" id="patente" name="patente" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="ano" class="form-label">Año</label>
+                          <input type="text" class="form-control" id="ano" name="ano" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="marca" class="form-label">Marca</label>
+                          <input type="text" class="form-control" id="marca" name="marca" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="modelo" class="form-label">Modelo</label>
+                          <input type="text" class="form-control" id="modelo" name="modelo" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="kilometraje" class="form-label">Kilometraje</label>
+                          <input type="text" class="form-control" id="kilometraje" name="kilometraje" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="version" class="form-label">Versión</label>
+                        <input type="text" class="form-control" id="version" name="version" required>
+                    </div>
+                      <div class="mb-3">
+                          <button type="submit" class="btn btn-primary">Finalizar</button>
+                          <button type="button" class="btn btn-primary" onclick="volverAtras();">Volver atrás</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+          </div>
+      </div>
     </div>
-
-
     <div id="carouselExampleCaptions" class="carousel slide">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -91,6 +162,7 @@
             <div class="carousel-caption d-none d-md-block">
               <h5>Ferrari SP48</h5>
               <p> Sus líneas tensas y su actitud agresiva lo hacen inmediatamente reconocible, gracias también a su afilado frontal proyectado hacia adelante.</p>
+              <a href="ferrari.html" class="btn btn-primary">¡Ver más!</a>
             </div>
           </div>
           <div class="carousel-item">
@@ -98,6 +170,7 @@
             <div class="carousel-caption d-none d-md-block">
               <h5>Lamborghini Huracán Evo</h5>
               <p>El Lamborghini Huracán es un superdeportivo de diseño aerodinámico y tecnología avanzada, inspirado en el átomo de carbono y el ADN de la marca italiana.</p>
+              <a href="Lamborghini.html" class="btn btn-primary">¡Ver más!</a>
             </div>
           </div>
           <div class="carousel-item">
@@ -105,13 +178,15 @@
             <div class="carousel-caption d-none d-md-block">
               <h5>Porsche 718</h5>
               <p>l Porsche 718 es un automóvil deportivo que combina el espíritu deportivo del legendario Porsche 718 con el vehículo deportivo del futuro.</p>
+              <a href="Porsche.html" class="btn btn-primary">¡Ver más!</a>
             </div>
           </div>
           <div class="carousel-item">
             <img src="https://hdqwalls.com/download/audi-r8-v10-tuned-custom-1920x1080.jpg" class="d-block w-100" alt="Imagen 4 del carrusel">
             <div class="carousel-caption d-none d-md-block">
-              <h5>Fourth slide label</h5>
-              <p>Some representative placeholder content for the fourth slide.</p>
+              <h5>Audi R8</h5>
+              <p>El Audi R8 es un automóvil deportivo de alto rendimiento y diseño aerodinámico, conocido por su motor central y tracción integral quattro.</p>
+              <a href="Audi.html" class="btn btn-primary">¡Ver más!</a>
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
@@ -131,7 +206,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Autos Eléctricos</h5>
                   <p class="card-text">¡Descubre el futuro de la movilidad con los autos eléctricos que nos trae Tesla! Experimenta una conducción suave, silenciosa y respetuosa con el medio ambiente.</p>
-                  <a href="#" class="btn btn-primary">¡Conoce más!</a>
+                  <a href="https://www.tesla.com/es_cl" class="btn btn-primary">¡Conoce más!</a>
                 </div>
               </div>
         </div>
@@ -141,7 +216,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Rolls-Royce</h5>
                   <p class="card-text">¡Eleva tu experiencia de conducción a nuevas alturas con el último modelo de Rolls-Royce! Experimenta el lujo incomparable, la artesanía meticulosa y el rendimiento excepcional que solo Rolls-Royce puede ofrecer. </p>
-                  <a href="#" class="btn btn-primary">¡Conoce más!</a>
+                  <a href="https://www.rolls-roycemotorcars.com/en_GB/showroom/cullinan.html" class="btn btn-primary">¡Conoce más!</a>
                 </div>
               </div>
         </div>
@@ -151,7 +226,7 @@
                 <div class="card-body">
                   <h5 class="card-title">¡Asegura tu vehículo aquí!</h5>
                   <p class="card-text">¡Protege tu inversión y mantén tu tranquilidad asegurando tu vehículo hoy mismo! Con nuestra amplia gama de opciones de seguro, puedes estar seguro de que tu auto estará cubierto en caso de accidentes, robo o daños.</p>
-                  <a href="#" class="btn btn-primary">¡Conoce más!</a>
+                  <a href="https://coophoreb.com/asegura-tu-vehiculo/" class="btn btn-primary">¡Conoce más!</a>
                 </div>
               </div>
         </div>
@@ -202,8 +277,6 @@
                   <li class="nav-item mb-2"><a href="Audi.html" class="nav-link p-0 text-white">Audi</a></li>
                   <li class="nav-item mb-2"><a href="Rollsroyce.html" class="nav-link p-0 text-white">Rolls-Royce</a></li>
                   <li class="nav-item mb-2"><a href="Porsche.html" class="nav-link p-0 text-white">Porsche</a></li>
-                  <li class="nav-item mb-2"><a href="Kia.html" class="nav-link p-0 text-white">Kia</a></li>
-                  <li class="nav-item mb-2"><a href="Chevrolet.html" class="nav-link p-0 text-white">Chevrolet</a></li>
                 </ul>
               </div>
             </footer>
