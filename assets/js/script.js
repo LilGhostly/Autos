@@ -11,10 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-
-    // Añadir el event listener una vez que el DOM esté completamente cargado
  
-    // Llamar a filtrarVehiculos para aplicar el filtro inicialmente
     filtrarVehiculos();
 });
 document.addEventListener("DOMContentLoaded", function() {
@@ -52,7 +49,6 @@ document.addEventListener("DOMContentLoaded", function() {
     filtroVehiculo.addEventListener("change", filtrarVehiculos);
     filtroYear.addEventListener("change", filtrarVehiculos);
 
-    // Al cargar la página, mostrar todos los vehículos
     filtrarVehiculos();
 });
 
@@ -142,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const combustibleVehiculo = item.querySelector(".fa-gas-pump").classList;
 
             if (combustiblesSeleccionados.length === 0) {
-                coincideCombustible = true; // Mostrar todos si no hay ninguno seleccionado
+                coincideCombustible = true; 
             } else {
                 combustiblesSeleccionados.forEach(combustible => {
                     switch (combustible) {
@@ -179,7 +175,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Event listeners para los filtros
     filtroVehiculo.addEventListener("change", filtrarVehiculos);
     filtroYear.addEventListener("change", filtrarVehiculos);
     filtroKilometraje.addEventListener("change", filtrarVehiculos);
@@ -188,12 +183,10 @@ document.addEventListener("DOMContentLoaded", function() {
         cb.addEventListener("change", filtrarVehiculos);
     });
 
-    // Filtrar al cargar la página
     filtrarVehiculos();
 });
 
 $(document).ready(function() {
-    // Mostrar el formulario de compra cuando se haga clic en "Compramos tus vehículos"
     $('#compramos-autos').click(function(e) {
         e.preventDefault();
         $('#carouselExampleCaptions').hide();
@@ -202,7 +195,6 @@ $(document).ready(function() {
         $('#texto-compramos-autos').show();
     });
 
-    // Función para mostrar el formulario de detalles del vehículo
     function mostrarFormularioVehiculo() {
         $('#formulario-compra').hide();
         $('#texto-compramos-autos').hide();
@@ -211,24 +203,19 @@ $(document).ready(function() {
         
     }
 
-    // Función para volver al formulario de compra inicial
+
     function volverAFormularioCompra() {
         $('#formulario-vehiculo').hide();
         $('#formulario-compra').show();
         $('#texto-compramos-autos').show();
     }
 
-    // Función que se ejecuta al hacer clic en "Continuar" en el formulario inicial
     window.continuarFormulario = function() {
-        // Aquí podrías validar los datos del formulario inicial si es necesario
 
-        // Mostrar el formulario de detalles del vehículo
         mostrarFormularioVehiculo();
     };
 
-    // Función que se ejecuta al hacer clic en "Volver atrás" en el formulario de detalles del vehículo
     window.volverAtras = function() {
-        // Volver al formulario de compra inicial
         volverAFormularioCompra();
     };
 });

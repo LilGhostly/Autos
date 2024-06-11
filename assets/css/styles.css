@@ -66,12 +66,11 @@ h2{
 
 
 select {
-  color: gray; /* Color de texto gris */
+  color: gray; 
 }
 
-/* Estilo para el select cuando se selecciona una opción */
 select option {
-  color: black; /* Color de texto normal */
+  color: black; 
 }
 
 #texto-compramos-autos{
