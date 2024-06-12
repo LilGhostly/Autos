@@ -1,5 +1,5 @@
 body {
-    background-color: #d4d4d4;
+    background-color: #000000;
     overflow-x: hidden;
 }
 
@@ -79,12 +79,37 @@ select option {
   padding-top: 20px;
 }
 
+#texto-detalles-autos{
+  display: none;
+  padding-left: 25%;
+  padding-top: 20px;
+}
 #formulario-compra{
   display: none;
+  padding-bottom: 20px;
 }
+
+#formulario-detalle{
+  display: none; 
+  padding-bottom: 20px;
+  padding-top: 20px;
+
+}
+
 #estilos{
   padding-left: 0;
 }
 #estilos div{
   margin-bottom: 25px;
+  
 }
+
+.col-md-6{
+  background-color: white;
+}
+
+
+.final{
+  padding-top: 25px;
+}
+

@@ -50,10 +50,10 @@
     <div class="container mt-4">
       <div class="row">
           <div class="col-md-6">
-              <div id="texto-compramos-autos" style="display: none;">
+              <div id="texto-compramos-autos">
                   <h2 class="mb-3">Compramos tu vehículo</h2>
                   <p>Obtén una tasación inmediata al mejor precio.<br>
-                  Realiza tu venta de forma segura, rápida y confiable.</p>
+                      Realiza tu venta de forma segura, rápida y confiable.</p>
                   <div id="estilos">
                       <div><i class="fas fa-circle" style="color: #787878;"></i> Ingresa tus datos</div>
                       <div><i class="fas fa-circle" style="color: #787878;"></i> Recibe una oferta</div>
@@ -64,77 +64,103 @@
           <div class="col-md-6">
               <div id="formulario-compra">
                   <h2 class="mb-3">Formulario de Compra</h2>
-                  <form id="formulario" method="post" action="#">
+                  <form id="formulario-compra-form" method="post" action="#">
                       <div class="mb-3">
                           <label for="rut" class="form-label">Rut</label>
                           <input type="text" class="form-control" id="rut" name="rut" required>
+                          <div class="invalid-feedback">Este campo es obligatorio. Ej: 11.111.111-1</div>
                       </div>
                       <div class="mb-3">
                           <label for="nombre" class="form-label">Nombre</label>
                           <input type="text" class="form-control" id="nombre" name="nombre" required>
+                          <div class="invalid-feedback">Este campo es obligatorio</div>
                       </div>
                       <div class="mb-3">
                           <label for="email" class="form-label">Correo Electrónico</label>
                           <input type="email" class="form-control" id="email" name="email" required>
+                          <div class="invalid-feedback">Ingresa un correo válido. Ej: nombre@correo.com</div>
                       </div>
                       <div class="mb-3">
-                          <label for="telefono" class="form-label">Teléfono</label>
-                          <input type="tel" class="form-control" id="telefono" name="telefono" required>
+                          <label for="telefono" class="form-label">Celular</label>
+                          <div class="input-group">
+                              <span class="input-group-text">+569</span>
+                              <input type="tel" class="form-control" id="telefono" name="telefono" minlength="8"
+                                  maxlength="8" required>
+                              <div class="invalid-feedback">Este campo es obligatorio. Ej: 1234 5678</div>
+                          </div>
                       </div>
                       <div class="mb-3">
                           <label for="mensaje" class="form-label">Mensaje</label>
-                          <textarea class="form-control" id="mensaje" name="mensaje" rows="3"></textarea>
+                          <textarea class="form-control" id="mensaje" name="mensaje" rows="2"></textarea>
+                          <small class="form-text text-muted">(opcional)</small>
                       </div>
                       <div class="mb-3">
                           <button type="button" class="btn btn-primary" onclick="continuarFormulario();">Continuar</button>
-                          <button type="button" class="btn btn-primary" onclick="window.location.href = 'index.html';">Volver atrás</button>
+                          <button type="button" class="btn btn-primary" onclick="window.location.href = 'index.html';">Volver
+                              atrás</button>
                       </div>
                   </form>
               </div>
-              <div class="container mt-4">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div id="texto-detalles-autos" style="display: none;">
-                            <h2 class="mb-3">Compramos tu vehículo</h2>
-                            <p>Obtén una tasación inmediata al mejor precio.<br>
-                            Realiza tu venta de forma segura, rápida y confiable.</p>
-                            <div id="estilos">
-                                <div><i class="fas fa-circle" style="color: #787878;"></i> Ingresa tus datos</div>
-                                <div><i class="fas fa-circle" style="color: #787878;"></i> Recibe una oferta</div>
-                                <div><i class="fas fa-circle" style="color: #787878;"></i> Agenda revisión</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-              <div id="formulario-vehiculo" style="display: none;">
-                  <h2 class="mb-3">Detalles del Vehículo</h2>
-                  <form id="formulario-detalle" method="post" action="#">
+          </div>
+      </div>
+  </div>
+  
+  <div class="container mt-4">
+      <div class="row">
+          <div class="col-md-6">
+              <div id="texto-detalles-autos">
+                  <h2 class="mb-3">Tasa tu vehículo</h2>
+                  <p>En este paso te pediremos los datos de tu auto,<br> y así obtendrás una oferta de forma
+                      inmediata.</p>
+                  <div id="estilos">
+                      <div><i class="fas fa-circle" style="color: #787878;"></i> El mejor precio del mercado</div>
+                      <div><i class="fas fa-circle" style="color: #787878;"></i> Transparencia y seguridad durante el
+                          proceso</div>
+                      <div><i class="fas fa-circle" style="color: #787878;"></i> Proceso rápido y confiable</div>
+                  </div>
+              </div>
+          </div>
+  
+          <div class="col-md-6">
+              <div id="formulario-detalle">
+                  <h2 class="mb-3">Ingresa los datos del auto a tasar</h2>
+                  <form id="formulario-detalle-form" method="post" action="#">
                       <div class="mb-3">
                           <label for="patente" class="form-label">Patente</label>
                           <input type="text" class="form-control" id="patente" name="patente" required>
+                          <div class="invalid-feedback">Por favor ingrese la patente en formato AA-AA-AA</div>
                       </div>
                       <div class="mb-3">
                           <label for="ano" class="form-label">Año</label>
                           <input type="text" class="form-control" id="ano" name="ano" required>
+                          <div class="invalid-feedback">Por favor llenar campo.</div>
                       </div>
                       <div class="mb-3">
                           <label for="marca" class="form-label">Marca</label>
                           <input type="text" class="form-control" id="marca" name="marca" required>
+                          <div class="invalid-feedback">Por favor llenar campo.</div>
                       </div>
                       <div class="mb-3">
                           <label for="modelo" class="form-label">Modelo</label>
                           <input type="text" class="form-control" id="modelo" name="modelo" required>
+                          <div class="invalid-feedback">Por favor llenar campo.</div>
                       </div>
                       <div class="mb-3">
                           <label for="kilometraje" class="form-label">Kilometraje</label>
-                          <input type="text" class="form-control" id="kilometraje" name="kilometraje" required>
+                          <input type="number" class="form-control" id="kilometraje" name="kilometraje" required min="0"
+                              max="120000" pattern="\d+" title="Por favor ingresa un valor numérico entre 0 y 120000">
+                          <div class="invalid-feedback">Por favor llenar campo sin utilizar puntos ni comas</div>
+                          <small class="form-text text-muted">Máximo 120.000 km</small>
                       </div>
-                      <div class="mb-3">
-                        <label for="version" class="form-label">Versión</label>
-                        <input type="text" class="form-control" id="version" name="version" required>
-                    </div>
-                      <div class="mb-3">
-                          <button type="submit" class="btn btn-primary">Finalizar</button>
+  
+                      <div id="terms-form">
+                          <input type="checkbox" id="terms-checkbox" required>
+                          <label for="terms-checkbox">Estoy de acuerdo con las Políticas de Privacidad y Condiciones</label>
+                          <div id="terms-checkbox-error" class="invalid-feedback">Por favor acepta los términos y condiciones.</div>
+                      </div>
+  
+                      <div class="final">
+                          <button type="button" class="btn btn-primary" onclick="finalizarFormulario();">Obtener Precio</button>
                           <button type="button" class="btn btn-primary" onclick="volverAtras();">Volver atrás</button>
                       </div>
                   </form>
@@ -142,9 +168,6 @@
           </div>
       </div>
   </div>
-          </div>
-      </div>
-    </div>
     <div id="carouselExampleCaptions" class="carousel slide">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
