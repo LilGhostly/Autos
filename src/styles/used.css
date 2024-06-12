@@ -1,0 +1,20 @@
+.card {}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-section {
+    display: flex;
+}
+
+.used-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.filter-container {
+    width: 80%;
+}
