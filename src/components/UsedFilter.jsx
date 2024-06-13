@@ -36,7 +36,7 @@ const UsedFilter = () => {
   }, [selectedBrand]);
   return (
     <div className="filter-container">
-      <h1>Filtro de Autos</h1>
+      <h4>Filtro de Autos</h4>
       <form>
         <div className="form-group">
           <label htmlFor="marca">Marca</label>

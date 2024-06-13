@@ -16,25 +16,40 @@ const UsedCarsContainers = () => {
   const handleCarDetails = (id) => {
     navigate(`/usados/auto/${id}`);
   };
+
+  function formatCurrency(number) {
+    return `$${number.toLocaleString("es-CL")}`;
+  }
+
+  if (isLoading) {
+    return (
+      <div className="spinner-container">
+        <div className="spinner-border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="card-container">
       {usedCars.map((car) => (
-        <div className="card" key={car.id}>
-          <div>
-            <img src="" alt="imagen" />
+        <div className="card-card" key={car.id}>
+          <div className="image-container">
+            <img src={car.imagen} alt={`${car.marca} ${car.modelo}`} />
           </div>
-          <div>
-            <h3>{car.marca}</h3>
-            <p>{car.modelo}</p>
-            <p>{car.precio}</p>
-            <div className="card-section">
+          <div className="card-section">
+            <h3>{car.marca.toUpperCase()}</h3>
+            <p className="modelo">{car.modelo.toUpperCase()}</p>
+            <p className="precio">{formatCurrency(car.precio)}</p>
+            <div className="card-sub">
               <p>{car.anio}</p>
-              <p>{car.kilometraje}</p>
+              <p>{`${car.kilometraje} kms.`}</p>
               <p>{car.caja}</p>
               <p>{car.combustible}</p>
             </div>
           </div>
-          <div>
+          <div className="button-container">
             <button onClick={() => handleCarDetails(car.id)}>
               Ver este auto
             </button>
