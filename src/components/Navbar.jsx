@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 const Navbar = () => {
+  const navigate = useNavigate();
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-black">
@@ -25,8 +28,7 @@ const Navbar = () => {
               <li className="nav-item">
                 <a
                   className="nav-link active text-white"
-                  aria-current="page"
-                  href="usados.html"
+                  onClick={() => navigate("./usados")}
                 >
                   Autos Usados
                 </a>
@@ -43,12 +45,18 @@ const Navbar = () => {
                 </a>
                 <ul className="dropdown-menu">
                   <li>
-                    <a className="dropdown-item" href="./ferrari.html">
+                    <a
+                      className="dropdown-item"
+                      onClick={() => navigate("/nuevos/ferrari")}
+                    >
                       Ferrari
                     </a>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="./Lamborghini.html">
+                    <a
+                      className="dropdown-item"
+                      onClick={() => navigate("/nuevos/lamborghini")}
+                    >
                       Lamborghini
                     </a>
                   </li>
