@@ -61,17 +61,26 @@ const Navbar = () => {
                     </a>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="./Porsche.html">
+                    <a
+                      className="dropdown-item"
+                      onClick={() => navigate("/nuevos/porsche")}
+                    >
                       Porsche
                     </a>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="./Audi.html">
+                    <a
+                      className="dropdown-item"
+                      onClick={() => navigate("/nuevos/audi")}
+                    >
                       Audi
                     </a>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="./Rollsroyce.html">
+                    <a
+                      className="dropdown-item"
+                      onClick={() => navigate("/nuevos/rolls-royce")}
+                    >
                       Rolls-Royce
                     </a>
                   </li>
