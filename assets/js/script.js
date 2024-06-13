@@ -193,29 +193,144 @@ $(document).ready(function() {
         $('.row.mt-4.p-3').hide();
         $('#formulario-compra').show();
         $('#texto-compramos-autos').show();
+        // Ocultar mensajes de error al mostrar el primer formulario
+        $('.invalid-feedback').hide();
     });
 
     function mostrarFormularioVehiculo() {
+        // Validar campos antes de continuar
+        var rut = $('#rut').val().trim();
+        var nombre = $('#nombre').val().trim();
+        var email = $('#email').val().trim();
+        var telefono = $('#telefono').val().trim();
+
+        // Ocultar todos los mensajes de error previamente mostrados
+        $('.invalid-feedback').hide();
+
+        // Validar Rut
+        if (!validarRut(rut)) {
+            $('#rut').next('.invalid-feedback').show();
+            return;
+        }
+
+        if (nombre === '') {
+            $('#nombre').next('.invalid-feedback').show();
+            return;
+        }
+        if (email === '') {
+            $('#email').next('.invalid-feedback').show();
+            return;
+        }
+        if (telefono === '') {
+            $('#telefono').next('.invalid-feedback').show();
+            return;
+        }
+        if (telefono.length !== 8) {
+            $('#telefono').next('.invalid-feedback').show();
+            return;
+        }
+
+        // Si todos los campos están llenos, continuar
         $('#formulario-compra').hide();
         $('#texto-compramos-autos').hide();
-        $('#formulario-vehiculo').show();
+        $('#formulario-detalle').show();
         $('#texto-detalles-autos').show();
-        
     }
-
 
     function volverAFormularioCompra() {
-        $('#formulario-vehiculo').hide();
+        $('#formulario-detalle').hide();
         $('#formulario-compra').show();
         $('#texto-compramos-autos').show();
+        $('#texto-detalles-autos').hide();
+        // Ocultar mensajes de error al volver al primer formulario
+        $('.invalid-feedback').hide();
     }
 
-    window.continuarFormulario = function() {
+    // Función para validar el Rut
+    function validarRut(rut) {
+        // Validar formato "11.111.111-1"
+        return /^(\d{2})\.(\d{3})\.(\d{3})-(\d{1})$/.test(rut);
+    }
 
+    // Función para validar el formato de la patente XX-XX-XX o xx-xx-xx
+    function validarPatente(patente) {
+        return /^[a-zA-Z\d]{2}-[a-zA-Z\d]{2}-[a-zA-Z\d]{2}$/.test(patente);
+    }
+
+    // Función para continuar el formulario
+    window.continuarFormulario = function() {
         mostrarFormularioVehiculo();
     };
 
+    // Función para volver atrás
     window.volverAtras = function() {
         volverAFormularioCompra();
+    };
+
+    // Función para finalizar el formulario de detalles del auto
+    window.finalizarFormulario = function() {
+        var patente = $('#patente').val().trim();
+        var ano = $('#ano').val().trim();
+        var marca = $('#marca').val().trim();
+        var modelo = $('#modelo').val().trim();
+        var kilometraje = $('#kilometraje').val().trim();
+        var mensaje = $('#mensaje').val().trim();
+        var termsChecked = $('#terms-checkbox').prop('checked');
+
+        // Ocultar todos los mensajes de error previamente mostrados
+        $('.invalid-feedback').hide();
+
+        // Validar campos antes de finalizar
+        var validacionCorrecta = true;
+
+        if (patente === '' || !validarPatente(patente)) {
+            $('#patente').next('.invalid-feedback').show();
+            validacionCorrecta = false;
+        }
+
+        // Validar año
+        if (ano === '') {
+            $('#ano').next('.invalid-feedback').show();
+            validacionCorrecta = false;
+        } else if (!(/^\d{4}$/.test(ano))) {
+            // Asegurar que el año tenga 4 dígitos numéricos
+            $('#ano').next('.invalid-feedback').text('El año debe ser un número de 4 dígitos.').show();
+            validacionCorrecta = false;
+        }
+
+        if (marca === '') {
+            $('#marca').next('.invalid-feedback').show();
+            validacionCorrecta = false;
+        }
+
+        if (modelo === '') {
+            $('#modelo').next('.invalid-feedback').show();
+            validacionCorrecta = false;
+        }
+
+        if (kilometraje === '') {
+            $('#kilometraje').next('.invalid-feedback').show();
+            validacionCorrecta = false;
+        } else if (parseInt(kilometraje) > 120000) {
+            $('#kilometraje').next('.invalid-feedback').text('Excede el límite de 120.000 km.').show();
+            validacionCorrecta = false;
+        }
+
+        if (mensaje.length > 0 && mensaje.length < 10) {
+            $('#mensaje').next('.invalid-feedback').show();
+            validacionCorrecta = false;
+        }
+
+        if (!termsChecked) {
+            $('#terms-form .invalid-feedback').show(); // Mostrar mensaje de error de términos y condiciones
+            validacionCorrecta = false;
+        }
+
+        // Si todos los campos están llenos, finalizar formulario
+        if (validacionCorrecta) {
+            alert('Formulario enviado correctamente, en breve recibirás un correo electrónico mostrando los detalles. Serás redirigido a la página principal.');
+            // Redirigir a la página principal
+            window.location.href = 'index.html';
+        }
     };
 });
